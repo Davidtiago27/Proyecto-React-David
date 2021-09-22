@@ -56,7 +56,7 @@ function ItemListContainer ({bienvenida}) {
         
         <div>
             <h2>{bienvenida}</h2>
-            { libros.map((libro, index) => <div key={index} >{libro.Titulo}
+            { libros.map((libro, index) => <div key={index} >
             <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={libro.foto} />
             <Card.Body>

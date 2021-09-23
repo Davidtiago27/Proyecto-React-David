@@ -62,9 +62,9 @@ function ItemListContainer ({bienvenida}) {
             <Card.Body>
                 <Card.Title>{libro.Titulo}</Card.Title>
                 <Card.Text>
-                Precio:{libro.Precio}
+                Precio: ${libro.Precio}
                 </Card.Text>
-                <Button variant="primary">Detalle</Button>
+                <Button variant="dark">Detalle</Button>
             </Card.Body>
             </Card>
             

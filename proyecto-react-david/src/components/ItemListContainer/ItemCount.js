@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import {useState} from 'react'
 import Card from 'react-bootstrap/Card';
-
+// import ItemList from '../Items/ItemsList';
 
 
 const ItemCount = ({stock, initial, onAdd}) => {
@@ -50,4 +50,4 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
 }
 
-export default ItemCount
+export default ItemCount;

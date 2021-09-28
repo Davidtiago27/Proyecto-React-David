@@ -1,8 +1,9 @@
 import { useState, useEffect} from 'react'
 import React from 'react'
 import ItemCount from './ItemCount'
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+// import Card from 'react-bootstrap/Card';
+// import Button from 'react-bootstrap/Button';
+import ItemList from '../Items/ItemsList';
 
 const libros = [
     {id: 1 , foto: 'https://imagessl8.casadellibro.com/a/l/t5/08/9788497592208.jpg', Titulo: 'Cien años de soledad', Precio: '2'},
@@ -13,106 +14,71 @@ const libros = [
     
 ]
 
+const task = new Promise((res, rej) => {
 
-// const getFetch = new Promise ((res, rej)=>{
-//     let miPromesa = new Promise ((res, rej)=> {
-//         setTimeout (()=> {
-//             res(libros);
-//         }, 3000)
-    
-//         console.log(getFetch)
-//     })
+  setTimeout(() => {
+    res(libros);
+  }, 3000);
+});
+
+// const promesa1 = new Promise ((resolve)=>{
+
+//   setTimeout(()=>{
+//       resolve(libros)
+//   }, 2000)
 // })
 
-
 function ItemListContainer ({bienvenida}) {
+    const [libros, setLibros] = useState([])
+    const [loading, setloading] = useState(true)
 
-    //const [libros, setLibros] = useState([])
-
-    const task = new Promise((res, rej) => {
-        setTimeout(() => {
-          res(libros);
-        }, 3000);
-      });
+    useEffect(()=>{
+      task
+      .then(respuesta =>{
+        setLibros(respuesta)
+      })
+      .catch(error => console.log(error))
+      .finally(()=> setloading(false))
+    })
     
-      task.then((resultado) => {
-        libros.map((producto) => {
+      // task.then((resultado) => {
+      //   libros.map((producto) => {
     
-            
+        
           
-        });
-      });
+      //   });
+      // });
    
     
 
     const onAdd = (cant) => {
-        // console.log(cant)
+        
         alert('¡Agregaste ' + cant + ' libros a tu bolsa!')
     }
 
-    console.log(libros)
+    // console.log(libros)
 
     return (
         
         <div>
             <h2>{bienvenida}</h2>
-            { libros.map((libro, index) => <div key={index} >
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={libro.foto} />
-            <Card.Body>
-                <Card.Title>{libro.Titulo}</Card.Title>
-                <Card.Text>
-                Precio: ${libro.Precio}
-                </Card.Text>
-                <Button variant="dark">Detalle</Button>
-            </Card.Body>
-            </Card>
+            { loading ? <h3>Un momento por favor</h3> :
             
-            </div>
+            <ItemList libros={libros} />
             
             
+            }
             
-            
-            
-            )}
-            <ItemCount stock={10} initial={1} onAdd={onAdd}/>
-            
+            {<ItemCount stock={10} initial={1} onAdd={onAdd}/>}
         </div>
     )
 }
 
-// task.then((resultado) => {
-//     libros.map((producto) => {
 
-        
-//       console.log(`ID del libro ${producto.Titulo}`);
-//     });
-//   });
+export const promesa1 = new Promise ((resolve)=>{
 
-
-
-
-
-
-
-
-
-
-// const lista = () =>{
-//     let miPromesa = new Promise ((res, rej)=> {
-//         setTimeout (()=> {
-//             res(libros);   
-//         }, 3000)
-//     })
-
-//     miPromesa.then(() => {
-//     libros.map(libros =>
-//         console.log('${libros.Titulo}')
-        
-//         )
-// }) 
-// }
-
-// console.log(libros)
-
+  setTimeout(()=>{
+      resolve(libros)
+  }, 2000)
+})
 export default ItemListContainer

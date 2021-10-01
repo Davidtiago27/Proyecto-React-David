@@ -12,15 +12,14 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Switch>   
-          <Route exact path='/list' > 
+          <Route exact path='/' > 
             <ItemListContainer bienvenida='Hola, bienvenido a tu libreria favorita' />
           </Route> 
 
-          <Route path='./categoria/:idCategoria' component={ItemListContainer}/>
+          <Route path='/categoria/:idCategoria' component={ItemListContainer}/>
 
-          <Route path='/'> 
-            <ItemDetailContainer />
-          </Route> 
+          <Route exact path='/detalle/:id' component={ItemDetailContainer}/> 
+            
           
           
         </Switch>

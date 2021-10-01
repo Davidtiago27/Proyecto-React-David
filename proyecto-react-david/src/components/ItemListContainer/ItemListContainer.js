@@ -4,10 +4,10 @@ import ItemCount from './ItemCount'
 // import Card from 'react-bootstrap/Card';
 // import Button from 'react-bootstrap/Button';
 import ItemList from '../Items/ItemsList';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 
 const libros = [
-    {id: 1 , categoria: 'realismo magico' , foto: 'https://imagessl8.casadellibro.com/a/l/t5/08/9788497592208.jpg', Titulo: 'Cien años de soledad', Precio: '2'},
+    {id: 1 , categoria: 'realismo' , foto: 'https://imagessl8.casadellibro.com/a/l/t5/08/9788497592208.jpg', Titulo: 'Cien años de soledad', Precio: '2'},
     {id: 2 , categoria: 'ficcion' , foto: 'https://www.plazayjanescolombia.com/wp-content/uploads/1ae530d553804c97ae191adc18696baf.jpg', Titulo: 'La vuelta al mundo en ochenta días', Precio: '2'},
     {id: 3 , categoria: 'ficcion' , foto: 'https://images.cdn2.buscalibre.com/fit-in/360x360/ca/21/ca2172fc190516f831ee04d26910626a.jpg', Titulo: 'Dune', Precio: '3'},
     {id: 4 , categoria: 'clasicos' , foto: 'https://images-na.ssl-images-amazon.com/images/I/81pWlvxmVQL.jpg', Titulo: 'The sun also rises', Precio: '4'},
@@ -35,13 +35,25 @@ function ItemListContainer ({bienvenida}) {
     const { idCategoria } = useParams()
 
     useEffect(()=>{
-      task
-      .then(respuesta =>{
-        setLibros(respuesta)
-      })
-      .catch(error => console.log(error))
-      .finally(()=> setloading(false))
-    })
+
+      if (idCategoria) {
+        task
+        .then(respuesta =>{
+          setLibros( respuesta.filter(prod => prod.categoria=== idCategoria ) )
+        })
+        .catch(error => console.log(error))
+        .finally(()=> setloading(false))
+      }else{
+        task
+        .then(respuesta =>{
+          setLibros(respuesta)
+        })
+        .catch(error => console.log(error))
+        .finally(()=> setloading(false))
+      }
+
+      
+    }, [idCategoria] )
     
       // task.then((resultado) => {
       //   libros.map((producto) => {

@@ -22,15 +22,19 @@ const NavBar = () => {
                     {/* <Nav.Link href="/">Inicio</Nav.Link> */}
                     <Nav.Link href="#Autores">Autores</Nav.Link>
                     <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                    <Link exact to = '/categoria/Ficcion'>
+                    <Link exact to = '/categoria/ficcion'>
                         Ficcion
                     </Link>
                     
-                    <Link exact to = '/categoria/Realismo'>
+                    <Link exact to = '/categoria/realismo'>
                         Realismo Magico
                     </Link>
                     
-                    <NavDropdown.Item href="#Clasicos">Clasicos</NavDropdown.Item>
+                    <Link exact to = '/categoria/clasicos'>
+                        Clasicos
+                    </Link>
+                    
+
                     <NavDropdown.Divider />
 
                     <Link exact to = "list">

@@ -37,7 +37,7 @@ const NavBar = () => {
 
                     <NavDropdown.Divider />
 
-                    <Link exact to = "list">
+                    <Link exact to = "">
                         Todos los libros
                     </Link>
 

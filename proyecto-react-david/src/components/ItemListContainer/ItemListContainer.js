@@ -56,11 +56,4 @@ function ItemListContainer ({bienvenida}) {
     )
 }
 
-
-// export const promesa1 = new Promise ((resolve)=>{
-
-//   setTimeout(()=>{
-//       resolve(libros)
-//   }, 2000)
-// })
 export default ItemListContainer

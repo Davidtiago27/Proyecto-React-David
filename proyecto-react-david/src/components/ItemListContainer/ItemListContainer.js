@@ -35,10 +35,10 @@ function ItemListContainer ({bienvenida}) {
     }, [idCategoria] )
     
 
-    const onAdd = (cant) => {
+    // const onAdd = (cant) => {
         
-        alert('¡Agregaste ' + cant + ' libros a tu bolsa!')
-    }
+    //     alert('¡Agregaste ' + cant + ' libros a tu bolsa!')
+    // }
 
     return (
         
@@ -51,7 +51,7 @@ function ItemListContainer ({bienvenida}) {
             
             }
             
-            {<ItemCount stock={10} initial={1} onAdd={onAdd}/>}
+            {/* {<ItemCount stock={10} initial={1} onAdd={onAdd}/>} */}
         </div>
     )
 }

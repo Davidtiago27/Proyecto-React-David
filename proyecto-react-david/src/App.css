@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-image: url("https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-repeat: no-repeat;
+  background-size  : cover;
+  background-attachment: fixed;
+  background-position: top left;
+  
+  height : 100vh;
+}
+
+#boton {
+  margin: 15px 15px;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 6.25rem;
+  background-color: #224852;
+  border-color: none;
+  transition: all 0.5s;
+  }

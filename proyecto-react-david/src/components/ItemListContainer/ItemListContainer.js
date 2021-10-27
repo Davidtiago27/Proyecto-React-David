@@ -6,6 +6,8 @@ import ItemCount from './ItemCount'
 import ItemList from '../Items/ItemsList';
 import { useParams } from 'react-router-dom';
 import { task } from '../../utils/Mock'
+import CartContextProvider from '../../Context/cartContext';
+import { Col, Row } from 'react-bootstrap';
 
 
 function ItemListContainer ({bienvenida}) {
@@ -41,18 +43,21 @@ function ItemListContainer ({bienvenida}) {
     // }
 
     return (
-        
-        <div>
+      
+        <div >
+          
             <h2>{bienvenida}</h2>
             { loading ? <h3>Un momento por favor</h3> :
             
             <ItemList libros={libros} />
-            
+          
             
             }
             
             {/* {<ItemCount stock={10} initial={1} onAdd={onAdd}/>} */}
+          
         </div>
+    
     )
 }
 

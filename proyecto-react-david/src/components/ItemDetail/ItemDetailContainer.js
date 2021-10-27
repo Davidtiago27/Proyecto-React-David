@@ -1,4 +1,5 @@
 import { task } from '../../utils/Mock'
+import { createContext, useContext } from "react";
 import React from 'react'
 import {useState, useEffect} from 'react'
 import ItemListContainer from '../ItemListContainer/ItemListContainer'
@@ -15,7 +16,7 @@ import { useParams } from 'react-router-dom';
     task
     .then(respuesta =>{
       setItem( respuesta.find(prod => prod.id== id ))
-      console.log(item) ;
+      // console.log(item) ;
     })
 
   }, {})
@@ -27,9 +28,7 @@ import { useParams } from 'react-router-dom';
 
     return(
         <>
-          {/* <div>
-            Hola soy detalle
-          </div> */}
+        
          <ItemDetail item={item}/>
 
 

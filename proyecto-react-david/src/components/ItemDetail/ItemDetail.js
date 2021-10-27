@@ -1,17 +1,27 @@
 import React from 'react'
-import { useState, useEffect} from 'react'
+import { useState, useEffect, useContext} from 'react'
 import Item from '../Items/Items';
 import Card from 'react-bootstrap/Card';
 import ItemCount from '../ItemListContainer/ItemCount';
+import { cartContext } from '../../Context/cartContext';
 
 
 
 const ItemDetail = ({item}) => {
+
+    // const {agregarABolsa} = useCartContext()
     const [cantidad, setcantidad] = useState(0)
+
+    const {addToCart} = useContext(cartContext)
     const onAdd = (cant) => {
-        setcantidad(cant)
-        alert('¡Agregaste ' + cant + ' libros a tu bolsa!')
-    }
+            setcantidad(cant)
+            addToCart({item: item, cantidad: cant})
+            alert('¡Agregaste ' + cant + ' libros a tu bolsa!')
+            
+        }
+
+    // console.log(addToCart);
+    // console.log(agregarABolsa);
 
     return(
         <>

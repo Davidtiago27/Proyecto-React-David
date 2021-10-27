@@ -56,3 +56,21 @@ body {
   border-color: none;
   transition: all 0.5s;
   }
+
+  #cards__container{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    max-width:1120px;
+    width: 90%;
+    margin: 0 auto;
+  }
+    
+    #cards_wrapper {
+    position: relative;
+    margin: 50px © 45px;
+    }
+#menu {
+  text-decoration: none;
+  color: #222222;
+}

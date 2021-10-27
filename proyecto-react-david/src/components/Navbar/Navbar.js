@@ -18,26 +18,26 @@ const NavBar = () => {
                 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
+                <Nav className="me-auto" >
                     {/* <Nav.Link href="/">Inicio</Nav.Link> */}
                     <Nav.Link href="#Autores">Autores</Nav.Link>
                     <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                    <Link exact to = '/categoria/ficcion'>
+                    <Link exact to = '/categoria/ficcion' id='menu'>
                         Ficcion
                     </Link>
                     
-                    <Link exact to = '/categoria/realismo'>
+                    <Link exact to = '/categoria/realismo' id='menu'>
                         Realismo Magico
                     </Link>
                     
-                    <Link exact to = '/categoria/clasicos'>
+                    <Link exact to = '/categoria/clasicos' id='menu'>
                         Clasicos
                     </Link>
                     
 
                     <NavDropdown.Divider />
 
-                    <Link exact to = "">
+                    <Link exact to = "" id='menu'>
                         Todos los libros
                     </Link>
 
@@ -46,7 +46,12 @@ const NavBar = () => {
                 </Nav>
                 </Navbar.Collapse>
             </Container>
-            <CartWidget />
+            
+            <Link exact to = "/cart">
+                <CartWidget />
+            </Link>
+
+            
             </Navbar>
             
         </div>

@@ -11,8 +11,12 @@ const Item = ({libro}) => {
     return(
         <>
 
-            <div key={libro.Titulo}  >
-                
+            {/* <div className="container" key={libro.Titulo}  >
+
+                <div className="row">
+                    <div className="col-md-4" > */}
+                    <Row xs={1} md={2} className="g-4">
+                        <Col>
                         <Card style={{ width: '14rem' }}
                         >
                         <Card.Img variant="top" src={libro.foto} />
@@ -26,9 +30,18 @@ const Item = ({libro}) => {
                             </Link>
                         </Card.Body>
                         </Card>
+                        </Col>
+                        </Row>
+
+                    {/* </div>
+
+                    
+                </div>           
+                
+                        
                     
                     
-            </div>
+            </div> */}
 
         </>
     )

@@ -16,7 +16,7 @@ import { useParams } from 'react-router-dom';
     task
     .then(respuesta =>{
       setItem( respuesta.find(prod => prod.id== id ))
-      // console.log(item) ;
+      
     })
 
   }, {})

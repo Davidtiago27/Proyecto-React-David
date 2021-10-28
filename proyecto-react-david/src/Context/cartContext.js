@@ -22,24 +22,3 @@ export default function CartContextProvider ({children}) {
 
     )
 }
-
-
-
-// // export const useCartContext = () => useContext(CartContext)
-
-// export default function CartContextProvider ({children}) {
-//     const [listaCompra, setListaCompra] = useState([])
-
-//     // function agregarABolsa (item) {
-//     //     setListaCompra([...listaCompra, item])
-//     // }
-
-//     return (
-//         <CartContext.Provider value={{
-//             listaCompra,
-//             // agregarABolsa
-//         }} >
-//             {children}
-//         </CartContext.Provider>
-//     )
-// }

@@ -50,8 +50,7 @@ function ItemListContainer ({bienvenida}) {
             { loading ? <h3>Un momento por favor</h3> :
             
             <ItemList libros={libros} />
-          
-            
+                     
             }
             
             {/* {<ItemCount stock={10} initial={1} onAdd={onAdd}/>} */}

@@ -15,7 +15,7 @@ const ItemDetail = ({item}) => {
     const {addToCart} = useContext(cartContext)
     const onAdd = (cant) => {
             setcantidad(cant)
-            addToCart({item: item, cantidad: cant})
+            addToCart({item: item, quantity: cant})
             alert('¡Agregaste ' + cant + ' libros a tu bolsa!')
             
         }

@@ -23,7 +23,7 @@ function App() {
         <Navbar />
         <Switch>   
           <Route exact path='/' > 
-            <ItemListContainer bienvenida='Hola, bienvenido a tu libreria favorita' />
+            <ItemListContainer  bienvenida='Hola, bienvenido a tu libreria favorita' />
           </Route> 
 
           <Route path='/categoria/:idCategoria' component={ItemListContainer}/>

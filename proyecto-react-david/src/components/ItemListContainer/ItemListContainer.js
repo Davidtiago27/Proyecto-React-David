@@ -7,7 +7,7 @@ import ItemList from '../Items/ItemsList';
 import { useParams } from 'react-router-dom';
 import { task } from '../../utils/Mock'
 import CartContextProvider from '../../Context/cartContext';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Spinner } from 'react-bootstrap';
 
 
 function ItemListContainer ({bienvenida}) {
@@ -47,7 +47,7 @@ function ItemListContainer ({bienvenida}) {
         <div >
           
             <h2>{bienvenida}</h2>
-            { loading ? <h3>Un momento por favor</h3> :
+            { loading ?  <h3> <Spinner animation="border" /> Un momento por favor <Spinner animation="border" /> </h3>  :
             
             <ItemList libros={libros} />
                      

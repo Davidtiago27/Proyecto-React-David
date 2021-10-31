@@ -10,26 +10,46 @@ const Cart = () => {
     
     return (
         <div>
+            
+            <h3>Este es tu bolsa de compras</h3>
             {cartList.map(item => <div> 
+
                 
+        
+                
+                <Card className="text-center">
+                    
+                    <Card.Body>
+                        <Card.Title>{item.item.Titulo}</Card.Title>
+                        
+                    </Card.Body>
+                    <Card.Footer className="text-muted">
+                    <Badge variant="primary" pill>
+                            {item.quantity}
+                            </Badge>
+                    </Card.Footer>
+                </Card>
+
+
 
                     
-                    <ListGroup as="ol" numbered>
-                        <ListGroup.Item
-                            as="li"
-                            className="d-flex justify-content-between align-items-start"
-                        >
-                            <div className="ms-2 me-auto">
-                            <div className="fw-bold">{item.item.Titulo}</div>
+                {/* <ListGroup as="ol" className="d-flex justify-content-between align-items-start">
+                        <ListGroup.Item>
+
+                        <div className="ms-2 me-auto">
+                            {item.item.Titulo}
+    
+                        </div>
                             
-                            </div>
-                            <Badge variant="primary" pill>
+                            
+                            
+                        <Badge variant="primary" pill>
                             {item.cantidad}
                             </Badge>
                         </ListGroup.Item>
                         
                         
-                        </ListGroup>
+                    </ListGroup> */}
             
             
             

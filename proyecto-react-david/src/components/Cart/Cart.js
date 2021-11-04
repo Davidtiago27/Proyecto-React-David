@@ -1,13 +1,13 @@
-import Button from '@restart/ui/esm/Button'
+// import Button from '@restart/ui/esm/Button'
 import React from 'react'
 import { useContext } from 'react'
-import { Badge, Card, ListGroup } from 'react-bootstrap'
+import { Badge, Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { cartContext } from '../../Context/cartContext'
 
 const Cart = () => {
 
-    const {cartList} = useContext(cartContext)
+    const {cartList, eliminarProducto} = useContext(cartContext)
     const totalDeCompra = cartList.reduce(
         (sum, item) => sum + item.quantity * item.item.Precio,
         0)
@@ -67,12 +67,15 @@ const Cart = () => {
                         
                     </Card.Body>
                     <Card.Footer className="text-muted">
-                    <Badge variant="primary" pill>
+                    <Badge id='boton2'>
                         Cantidad: {item.quantity}
                     </Badge>
-                    <Badge bg="dark" pill>
+                    <Badge id='boton'>
                         Precio: ${item.item.Precio}
                     </Badge>
+                    <Button id='boton1' onClick={()=>eliminarProducto(item)} >X
+                    </Button>
+                    
                     </Card.Footer>
                 </Card>
 

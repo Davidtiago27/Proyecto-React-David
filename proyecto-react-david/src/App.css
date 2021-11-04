@@ -57,6 +57,26 @@ body {
   transition: all 0.5s;
   }
 
+  #boton1 {
+    margin: 15px 15px;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 6.25rem;
+    background-color: #be0505;
+    border-color: none;
+    transition: all 0.5s;
+    }
+
+    #boton2 {
+      margin: 15px 15px;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 6.25rem;
+      background-color: #bda0e2;
+      border-color: none;
+      transition: all 0.5s;
+      }  
+
   #cards__container{
     display: flex;
     flex-flow: column;

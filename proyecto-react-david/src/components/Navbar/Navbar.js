@@ -6,8 +6,13 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 // import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react'
+import { cartContext } from '../../Context/cartContext'
 
 const NavBar = () => {
+
+    const {countCart} = useContext(cartContext)
+
     return (
         <div>
             <Navbar bg="light" expand="lg">
@@ -48,6 +53,7 @@ const NavBar = () => {
             </Container>
             
             <Link exact to = "/cart">
+                {countCart()}
                 <CartWidget />
             </Link>
 

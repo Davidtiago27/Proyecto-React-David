@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import { task } from '../../utils/Mock'
 import CartContextProvider from '../../Context/cartContext';
 import { Col, Row, Spinner } from 'react-bootstrap';
+import { getFirestore } from '../../servicios/getFirebase';
 
 
 function ItemListContainer ({bienvenida}) {
@@ -18,30 +19,51 @@ function ItemListContainer ({bienvenida}) {
     useEffect(()=>{
 
       if (idCategoria) {
-        task
-        .then(respuesta =>{
-          setLibros( respuesta.filter(prod => prod.categoria=== idCategoria ) )
-        })
-        .catch(error => console.log(error))
-        .finally(()=> setloading(false))
-      }else{
-        task
-        .then(respuesta =>{
-          setLibros(respuesta)
-        })
-        .catch(error => console.log(error))
-        .finally(()=> setloading(false))
+        const dbquery = getFirestore()
+      dbquery.collection('libros').where('categoria', '==', idCategoria ).get()
+      .then(resp =>
+        setLibros( resp.docs.map(libro => ( {id: libro.id, ...libro.data()} )) )
+        )
+      .catch(error => console.log(error))
+      .finally(()=> setloading(false))
+      } else {
+        const dbquery = getFirestore()
+      dbquery.collection('libros').get()
+      .then(resp =>
+        setLibros( resp.docs.map(libro => ( {id: libro.id, ...libro.data()} )) )
+        )
+      .catch(error => console.log(error))
+      .finally(()=> setloading(false))
       }
+
+      
+
+
+      
+
+
+
+      // if (idCategoria) {
+      //   task
+      //   .then(respuesta =>{
+      //     setLibros( respuesta.filter(prod => prod.categoria=== idCategoria ) )
+      //   })
+      //   .catch(error => console.log(error))
+      //   .finally(()=> setloading(false))
+      // }else{
+      //   task
+      //   .then(respuesta =>{
+      //     setLibros(respuesta)
+      //   })
+      //   .catch(error => console.log(error))
+      //   .finally(()=> setloading(false))
+      // }
 
       
     }, [idCategoria] )
     
 
-    // const onAdd = (cant) => {
-        
-    //     alert('¡Agregaste ' + cant + ' libros a tu bolsa!')
-    // }
-
+    console.log(libros);
     return (
       
         <div >

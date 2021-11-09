@@ -77,6 +77,16 @@ body {
       transition: all 0.5s;
       }  
 
+  #boton3 {
+      margin: 15px 15px;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 6.25rem;
+      background-color: #5e5e5e;
+      border-color: none;
+      transition: all 0.5s;
+    }  
+
   #cards__container{
     display: flex;
     flex-flow: column;
@@ -94,3 +104,31 @@ body {
   text-decoration: none;
   color: #222222;
 }
+
+#formulario {
+  background-color: transparent;
+  border-width: 0px 0px 1px;
+  border-top-style: initial;
+  border-right-style: initial;
+  border-left-style: initial;
+  border-top-color: initial;
+  border-right-color: initial;
+  border-left-color: initial;
+  border-image: initial;
+  border-radius: 0px;
+  box-sizing: border-box;
+  color: rgb(17, 17, 17);
+  caret-color: currentcolor;
+  display: block;
+  margin: 15px 15px;
+  padding: 8px 0px;
+  text-align: left;
+  outline: none;
+  width: 100%;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  --inputCurrentColor: #111111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }

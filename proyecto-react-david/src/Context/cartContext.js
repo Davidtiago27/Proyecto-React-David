@@ -27,6 +27,10 @@ export default function CartContextProvider ({children}) {
         setCartList([...eliminar])
     }
 
+    const totalDeCompra =()=>{   
+    return  cartList.reduce(
+        (sum, item) => sum + item.quantity * item.item.Precio,
+        0)}
     //console.log(cartList);
 
     // const addToCart = (dato) => {
@@ -44,6 +48,7 @@ export default function CartContextProvider ({children}) {
             cartList,
             addToCart,
             countCart,
+            totalDeCompra,
             eliminarProducto
 
         }} >

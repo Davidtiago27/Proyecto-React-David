@@ -51,12 +51,13 @@ const NavBar = () => {
                 </Nav>
                 </Navbar.Collapse>
             </Container>
-            
+            <div>
+                
             <Link exact to = "/cart">
                 {countCart()}
                 <CartWidget />
             </Link>
-
+            </div>
             
             </Navbar>
             

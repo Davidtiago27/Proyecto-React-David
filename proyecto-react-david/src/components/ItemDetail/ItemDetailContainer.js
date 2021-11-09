@@ -21,8 +21,13 @@ import { getFirestore } from '../../servicios/getFirebase';
 
     const dbqueryDetail = getFirestore()
           dbqueryDetail.collection('libros').doc(id).get()
-          .then(resp =>
-            setItem({id: libro.id, ...libro.data()} ) )
+          .then(resp => {
+            if (resp.exists){
+              setItem({id: resp.id, ...resp.data()}) 
+            }
+
+          })
+            
             
           
           

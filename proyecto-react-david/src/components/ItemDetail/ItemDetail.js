@@ -26,7 +26,30 @@ const ItemDetail = ({item}) => {
     return(
         <>
             {/* <h2>{item.Titulo}</h2> */}
-            <Card style={{ width: '18rem' }}>
+
+
+            <Card>
+                <Card.Img variant="top" src={item.foto} style={{ width: '14rem' }}/>
+                <Card.Body>
+                <Card.Text>
+                {item.descripcion}
+                </Card.Text>
+                </Card.Body>
+                
+            </Card>
+
+            {/* <Card className="bg-dark text-white">
+                <Card.Img src={item.foto} alt="Card image" style={{ width: '14rem' }} />
+                <Card.ImgOverlay>
+                    <Card.Title>{item.Titulo}</Card.Title>
+                    <Card.Text>
+                    {item.descripcion}
+                    </Card.Text>
+                    <Card.Text>Precio: ${item.Precio}</Card.Text>
+                </Card.ImgOverlay>
+            </Card> */}
+
+            {/* <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={item.foto} />
                     <Card.Body>
                         <Card.Title>{item.Titulo}</Card.Title>
@@ -38,9 +61,9 @@ const ItemDetail = ({item}) => {
                         </Card.Text>
                         
                     </Card.Body>
-                    </Card>
+                    </Card> */}
                  
-                {<ItemCount stock={10} initial={1} onAdd={onAdd}/>}
+            {<ItemCount stock={10} initial={1} onAdd={onAdd}/>}    
         </>
     )
 }

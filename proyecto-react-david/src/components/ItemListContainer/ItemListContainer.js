@@ -66,7 +66,7 @@ function ItemListContainer ({bienvenida}) {
     console.log(libros);
     return (
       
-        <div >
+        <div id='contenedor'>
           
             <h2>{bienvenida}</h2>
             { loading ?  <h3> <Spinner animation="border" /> Un momento por favor <Spinner animation="border" /> </h3>  :

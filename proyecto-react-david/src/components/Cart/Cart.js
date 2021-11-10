@@ -71,7 +71,7 @@ const Cart = () => {
     console.log(formData);
 
     return (
-        <div>
+        <div id='contenedor'>
             
             <h3>Esta es tu bolsa de compras</h3>
             {cartList.length === 0 ? <h3>No hay libros en tu bolsa todavia

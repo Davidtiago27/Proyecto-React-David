@@ -8,6 +8,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import { Link } from 'react-router-dom';
 import { useContext } from 'react'
 import { cartContext } from '../../Context/cartContext'
+import { Row } from 'react-bootstrap'
 
 const NavBar = () => {
 
@@ -18,7 +19,7 @@ const NavBar = () => {
             <Navbar bg="light" expand="lg">
             <Container>
                 <Link exact to = "/">
-                    <Navbar.Brand>Libreria Macondo</Navbar.Brand>
+                    <Navbar.Brand id='logo' >Libreria Macondo</Navbar.Brand>
                 </Link>
                 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -27,26 +28,28 @@ const NavBar = () => {
                     {/* <Nav.Link href="/">Inicio</Nav.Link> */}
                     <Nav.Link href="#Autores">Autores</Nav.Link>
                     <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                    <Link exact to = '/categoria/ficcion' id='menu'>
-                        Ficcion
-                    </Link>
-                    
-                    <Link exact to = '/categoria/realismo' id='menu'>
-                        Realismo Magico
-                    </Link>
-                    
-                    <Link exact to = '/categoria/clasicos' id='menu'>
-                        Clasicos
-                    </Link>
-                    
+                    <Container fluid>
+                        <Row>
+                            <Link exact to = '/categoria/ficcion' id='menu'>
+                                Ficcion
+                            </Link>
+                            
+                            <Link exact to = '/categoria/realismo' id='menu'>
+                                Realismo Magico
+                            </Link>
+                            
+                            <Link exact to = '/categoria/clasicos' id='menu'>
+                                Clasicos
+                            </Link>
+                        
 
-                    <NavDropdown.Divider />
+                            <NavDropdown.Divider />
 
-                    <Link exact to = "" id='menu'>
-                        Todos los libros
-                    </Link>
-
-                    
+                            <Link exact to = "" id='menu'>
+                                Todos los libros
+                            </Link>
+                        </Row>
+                    </Container>
                     </NavDropdown>
                 </Nav>
                 </Navbar.Collapse>

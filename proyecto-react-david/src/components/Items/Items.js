@@ -17,7 +17,7 @@ const Item = ({libro}) => {
                     <div className="col-md-4" > */}
                     <Row xs={1} md={2} className="g-4">
                         <Col>
-                        <Card style={{ width: '14rem' }}
+                        <Card style={{ width: '16rem' }}
                         >
                         <Card.Img variant="top" src={libro.foto} />
                         <Card.Body>

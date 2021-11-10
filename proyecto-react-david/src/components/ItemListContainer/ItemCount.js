@@ -36,7 +36,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
             <Button variant="dark" onClick={Suma}>+</Button>
             <Button variant="secondary" onClick={agregarBolsa}>Agregar a la bolsa</Button>
             <Button variant="dark" onClick={resta}>-</Button> */}
-            <Card style={{ width: '18rem', background: "#EBEBEB" }}>            
+            <Card variant="outlined" style={{ width: '18rem', background: "transparent", borderWidth: 0, borderColor: 'transparent', elevation: 0 }}>            
             <Card.Body>
                 <Card.Title>Bolsa</Card.Title>
                 

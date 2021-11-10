@@ -47,12 +47,12 @@ import { getFirestore } from '../../servicios/getFirebase';
     
 
     return(
-        <>
+        <div id='contenedor'>
         
          <ItemDetail item={item}/>
 
 
-        </>
+        </div>
     )
 }
 

@@ -38,6 +38,7 @@
 }
 
 body {
+  /* padding: 100px; */
   background-image: url("https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-repeat: no-repeat;
   background-size  : cover;
@@ -45,6 +46,10 @@ body {
   background-position: top left;
   
   height : 100vh;
+}
+
+#contenedor {
+  padding: 50px 100px;
 }
 
 #boton {
@@ -132,3 +137,5 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   }
+
+  

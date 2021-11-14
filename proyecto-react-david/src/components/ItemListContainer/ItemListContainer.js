@@ -1,8 +1,6 @@
 import { useState, useEffect} from 'react'
 import React from 'react'
 import ItemCount from './ItemCount'
-// import Card from 'react-bootstrap/Card';
-// import Button from 'react-bootstrap/Button';
 import ItemList from '../Items/ItemsList';
 import { useParams } from 'react-router-dom';
 import { task } from '../../utils/Mock'
@@ -24,7 +22,7 @@ function ItemListContainer ({bienvenida}) {
       .then(resp =>
         setLibros( resp.docs.map(libro => ( {id: libro.id, ...libro.data()} )) )
         )
-      .catch(error => console.log(error))
+      .catch(error => alert('algo salio mal, por favor carga la pagina nuevamente :('))
       .finally(()=> setloading(false))
       } else {
         const dbquery = getFirestore()
@@ -32,38 +30,13 @@ function ItemListContainer ({bienvenida}) {
       .then(resp =>
         setLibros( resp.docs.map(libro => ( {id: libro.id, ...libro.data()} )) )
         )
-      .catch(error => console.log(error))
+      .catch(error => alert('algo salio mal, por favor carga la pagina nuevamente :('))
       .finally(()=> setloading(false))
       }
 
       
-
-
-      
-
-
-
-      // if (idCategoria) {
-      //   task
-      //   .then(respuesta =>{
-      //     setLibros( respuesta.filter(prod => prod.categoria=== idCategoria ) )
-      //   })
-      //   .catch(error => console.log(error))
-      //   .finally(()=> setloading(false))
-      // }else{
-      //   task
-      //   .then(respuesta =>{
-      //     setLibros(respuesta)
-      //   })
-      //   .catch(error => console.log(error))
-      //   .finally(()=> setloading(false))
-      // }
-
-      
     }, [idCategoria] )
-    
-
-    console.log(libros);
+ 
     return (
       
         <div id='contenedor'>
@@ -74,8 +47,7 @@ function ItemListContainer ({bienvenida}) {
             <ItemList libros={libros} />
                      
             }
-            
-            {/* {<ItemCount stock={10} initial={1} onAdd={onAdd}/>} */}
+ 
           
         </div>
     

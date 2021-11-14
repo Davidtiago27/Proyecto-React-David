@@ -27,17 +27,6 @@ import { getFirestore } from '../../servicios/getFirebase';
             }
 
           })
-            
-            
-          
-          
-
-
-    // task
-    // .then(respuesta =>{
-    //   setItem( respuesta.find(prod => prod.id== id ))
-      
-    // })
 
   }, {})
 

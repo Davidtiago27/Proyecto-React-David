@@ -1,4 +1,4 @@
-// import Button from '@restart/ui/esm/Button'
+
 import React from 'react'
 import { useContext } from 'react'
 import {useState, useEffect} from 'react'
@@ -8,6 +8,10 @@ import { cartContext } from '../../Context/cartContext'
 import { getFirestore } from '../../servicios/getFirebase';
 import firebase from 'firebase';
 import 'firebase/firestore';
+import ItemCount from '../ItemListContainer/ItemCount'
+
+
+
 
 const Cart = () => {
     const [formData, setFormData] = useState({
@@ -19,7 +23,7 @@ const Cart = () => {
     })   
 
 
-    const {cartList, totalDeCompra, eliminarProducto} = useContext(cartContext)
+    const {cartList, totalDeCompra, eliminarProducto, borrarCart} = useContext(cartContext)
     
 
 
@@ -46,15 +50,36 @@ const Cart = () => {
 
     const db = getFirestore()  
     db.collection('orders').add(orden)
-    .then(resp => console.log(resp))
-    .catch(err => console.log(err))
+    .then(resp => alert('¡Gracias por tu compra!'))
+    .catch(err => alert('algo salio mal, por favor carga la pagina nuevamente :('))
+    .finally(()=> 
+        setFormData({
+            name: '',
+            telefono: '',
+            email: '',
+            email2: ''}),
+            borrarCart()
+    )
+
+    const nuevoStock = db.collection('libros').where(
+        firebase.firestore.FieldPath.documentId(), 'in', cartList.map(i => i.item.id)
+    )
+
+    const batch = db.batch()
+
+    nuevoStock.get()
+    .then( collection=>{
+        collection.docs.forEach(docSnapshot => {
+            batch.update(docSnapshot.ref, {
+                stock: docSnapshot.data().stock - cartList.find(item => item.item.id === docSnapshot.id).quantity
+            })
+        })
+
+        batch.commit().then(res =>{
+            console.log('resultado batch', res);
+        })
+    })
     
-
-
-
-
-
-     
     
 
     }
@@ -68,7 +93,10 @@ const Cart = () => {
 
             
         }
-    console.log(formData);
+    
+
+
+       
 
     return (
         <div id='contenedor'>
@@ -98,9 +126,11 @@ const Cart = () => {
                         
                     </Card.Body>
                     <Card.Footer className="text-muted">
+                        
                     <Badge id='boton2'>
                         Cantidad: {item.quantity}
                     </Badge>
+                     
                     <Badge id='boton'>
                         Precio: ${item.item.Precio}
                     </Badge>
@@ -118,7 +148,7 @@ const Cart = () => {
             )}
             <form
                 onSubmit={crearOrden}
-                // onChange={handleChange}
+                
                 onChange={handleChange}
                 
             >
@@ -159,7 +189,7 @@ const Cart = () => {
                 id='formulario'
                 />
                 {formData.email === formData.email2? <button id='boton'
-                // onClick={crearOrden}
+        
                 >Comprar</button>  : <Button  id='boton3' disabled>Comprar</Button > }
 
 

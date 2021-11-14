@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import {useState} from 'react'
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-// import ItemList from '../Items/ItemsList';
+
 
 
 const ItemCount = ({stock, initial, onAdd}) => {
@@ -31,11 +31,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
     return (
         
         <div>
-            
-            {/* <label>{count}</label><br/>
-            <Button variant="dark" onClick={Suma}>+</Button>
-            <Button variant="secondary" onClick={agregarBolsa}>Agregar a la bolsa</Button>
-            <Button variant="dark" onClick={resta}>-</Button> */}
+           
             <Card variant="outlined" style={{ width: '18rem', background: "transparent", borderWidth: 0, borderColor: 'transparent', elevation: 0 }}>            
             <Card.Body>
                 <Card.Title>Bolsa</Card.Title>

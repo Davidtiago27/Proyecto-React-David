@@ -15,7 +15,7 @@ import Cart from "./components/Cart/Cart";
 
 function App() {
 
- // console.log(cartContext);
+
   return (
     <CartContextProvider>
 

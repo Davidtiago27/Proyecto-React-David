@@ -6,7 +6,7 @@ export default function CartContextProvider ({children}) {
     const [cartList, setCartList] = useState([])
 
     function addToCart(item) {
-        // setCartList([...cartList, item])
+        
 
         if (cartList.some (i => i.item.id === item.item.id)) {
             cartList.find(i => i.item.id === item.item.id).quantity += item.quantity
@@ -31,17 +31,13 @@ export default function CartContextProvider ({children}) {
     return  cartList.reduce(
         (sum, item) => sum + item.quantity * item.item.Precio,
         0)}
-    //console.log(cartList);
 
-    // const addToCart = (dato) => {
-    //     // let previousCart = [...carList]
-    //     if (previousCart.some (i => i.item.id === data.item.id)) {
-    //     previousCart. find(i => i.item.id === data.item.id).quantity += data.quantity
-    //     setCarList(previousCart)
-    //     } else {
-    //     setCarList( [...carList, data ] )
-    //     }
-    // }
+   
+
+    const borrarCart=()=>{
+        setCartList([])
+    }  
+
     
     return (
         <cartContext.Provider value={{
@@ -49,7 +45,8 @@ export default function CartContextProvider ({children}) {
             addToCart,
             countCart,
             totalDeCompra,
-            eliminarProducto
+            eliminarProducto,
+            borrarCart
 
         }} >
             {children}

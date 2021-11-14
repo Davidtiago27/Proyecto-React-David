@@ -4,7 +4,6 @@ import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-// import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react'
 import { cartContext } from '../../Context/cartContext'
@@ -25,7 +24,6 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto" >
-                    {/* <Nav.Link href="/">Inicio</Nav.Link> */}
                     <Nav.Link href="#Autores">Autores</Nav.Link>
                     <NavDropdown title="Categorias" id="basic-nav-dropdown">
                     <Container fluid>
